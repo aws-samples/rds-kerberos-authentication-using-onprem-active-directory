@@ -1,0 +1,136 @@
+
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+By Prisma Cloud | version: 3.2.230 
+Update available 3.2.230 -> 3.2.254
+Run pip3 install -U checkov to update 
+
+
+terraform scan results:
+
+Passed checks: 27, Failed checks: 1, Skipped checks: 0
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: aws.default
+	File: /1.locals.tf:1-3
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-vpc-ingress
+	File: /2.vpc.tf:40-48
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-vpc-ingress
+	File: /2.vpc.tf:40-48
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-1-port-security
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-vpc-ingress
+	File: /2.vpc.tf:40-48
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31
+Check: CKV_AWS_277: "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-vpc-ingress
+	File: /2.vpc.tf:40-48
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-group-does-not-allow-all-traffic-on-all-ports
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-vpc-ingress
+	File: /2.vpc.tf:40-48
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-2
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-vpc-egress
+	File: /2.vpc.tf:50-58
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31
+Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+	PASSED for resource: vpc
+	File: /2.vpc.tf:6-31
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
+Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number"
+	PASSED for resource: vpc
+	File: /2.vpc.tf:6-31
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-tag
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-anycompany_ad
+	File: /3.active-directory.tf:95-103
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-anycompany_ad
+	File: /3.active-directory.tf:95-103
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-1-port-security
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-anycompany_ad
+	File: /3.active-directory.tf:95-103
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31
+Check: CKV_AWS_277: "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-anycompany_ad
+	File: /3.active-directory.tf:95-103
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-group-does-not-allow-all-traffic-on-all-ports
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-anycompany_ad
+	File: /3.active-directory.tf:95-103
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-2
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	PASSED for resource: aws_security_group_rule.allow-local-traffic-managed_ad
+	File: /3.active-directory.tf:105-113
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: aws_iam_role.rds_managed_ad_role
+	File: /4.databases.tf:18-52
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-274
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+	PASSED for resource: aws_iam_role.rds_managed_ad_role
+	File: /4.databases.tf:18-52
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-45
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+	PASSED for resource: aws_iam_role.rds_managed_ad_role
+	File: /4.databases.tf:18-52
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-44
+Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+	PASSED for resource: aurora_postgresql_v2
+	File: /4.databases.tf:63-103
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
+Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number"
+	PASSED for resource: aurora_postgresql_v2
+	File: /4.databases.tf:63-103
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-tag
+Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+	PASSED for resource: rds
+	File: /4.databases.tf:110-147
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
+Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number"
+	PASSED for resource: rds
+	File: /4.databases.tf:110-147
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-tag
+Check: CKV_AWS_275: "Disallow policies from using the AWS AdministratorAccess policy"
+	PASSED for resource: aws_iam_policy.AmazonWorkSpacesServiceAccess
+	File: /5.workspaces.tf:7-9
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-275
+Check: CKV_AWS_275: "Disallow policies from using the AWS AdministratorAccess policy"
+	PASSED for resource: aws_iam_policy.AmazonWorkSpacesSelfServiceAccess
+	File: /5.workspaces.tf:11-13
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-275
+Check: CKV_AWS_275: "Disallow policies from using the AWS AdministratorAccess policy"
+	PASSED for resource: aws_iam_policy.AmazonWorkSpacesPoolServiceAccess
+	File: /5.workspaces.tf:15-17
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-275
+Check: CKV_AWS_156: "Ensure that Workspace root volumes are encrypted"
+	PASSED for resource: aws_workspaces_workspace.testuserdesktop
+	File: /5.workspaces.tf:82-106
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-workspace-root-volumes-are-encrypted
+Check: CKV_AWS_155: "Ensure that Workspace user volumes are encrypted"
+	PASSED for resource: aws_workspaces_workspace.testuserdesktop
+	File: /5.workspaces.tf:82-106
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-workspace-user-volumes-are-encrypted
+Check: CKV_AWS_149: "Ensure that Secrets Manager secret is encrypted using KMS CMK"
+	FAILED for resource: aws_secretsmanager_secret.active_directory_password
+	File: /3.active-directory.tf:13-16
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-secrets-manager-secret-is-encrypted-using-kms
+
+		13 | resource "aws_secretsmanager_secret" "active_directory_password" {
+		14 |   name = "active_directory_password"
+		15 |   recovery_window_in_days = 0 
+		16 | }
+
+

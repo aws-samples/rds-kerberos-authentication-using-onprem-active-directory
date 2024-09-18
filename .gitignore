@@ -1,0 +1,15 @@
+#ignore dependencies 
+
+.terraform/
+
+#ignore statefiles 
+
+*.tfstate.*
+.terraform.lock.hcl
+*.tfstate
+
+*.terraform.*
+
+terraform.*
+
+terraform.tfstate
