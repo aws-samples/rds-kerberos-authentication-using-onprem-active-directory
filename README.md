@@ -1,10 +1,10 @@
 # Authenticate Amazon RDS instances using on-premises Microsoft Active Directory and Kerberos 
 
-Enabling single sign-on and centralized authentication of database users through your existing Microsoft Active Directory infrastructure. This terraform blueprint outlines how to integrate  on-premises Microsoft Active Directory with Amazon RDS using AWS Managed Microsoft AD. It facilitates Kerberos authentication for supported RDS database engines.
+A number of enterprise customers enable single sign-on (SSO) and centralized (Kerberos) authentication of database users using Microsoft Active Directory (AD). As these customers migrate their databases to [Amazon Relational Database Service(Amazon RDS)](https://aws.amazon.com/rds/), there is a need to extend this sign-on capability to Amazon RDS. For database users, this allows them to use SSO to log in to RDS instances. For administrators, they can manage user authentication and (optionally) manage database authorization centrally used Microsoft AD. 
 
-Amazon RDS supports Kerberos authentication for PostgreSQL, MySQL ,DB2 ,Oracle and SQL Server. Please see this link for complete list of supported Database Engines and regions https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.html
+This solution demonstrates how you can extend your existing AD infrastructure and Kerberos authentication to Amazon RDS.
 
-
+Amazon RDS supports Kerberos authentication for PostgreSQL, DB2, MySQL, Oracle, and SQL Server. For a complete list of supported database engines and AWS Regions, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.html)
 
 ## Solution Overview
 
