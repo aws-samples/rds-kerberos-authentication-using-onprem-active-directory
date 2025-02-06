@@ -57,7 +57,7 @@ resource "aws_iam_role" "rds_managed_ad_role" {
 
 data "aws_rds_engine_version" "postgresql" {
   engine  = "aurora-postgresql"
-  version = "14.5"
+  #version = "14.5" //vd : use default version
 }
 
 module "aurora_postgresql_v2" {

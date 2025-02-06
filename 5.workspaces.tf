@@ -16,13 +16,19 @@ data "aws_iam_policy" "AmazonWorkSpacesPoolServiceAccess" {
   name = "AmazonWorkSpacesPoolServiceAccess"
 }
 
-data "aws_iam_role" "workspaces_DefaultRole" {
-  name = "workspaces_DefaultRole"
+variable "roles" {
+  type    = number
+  default = 0
 }
+
+# data "aws_iam_role" "workspaces_DefaultRole" {
+#   name = "workspaces_DefaultRole"
+#   role-exists = length(data.aws_iam_role.workspaces_DefaultRole)
+# }
 
 
 resource "aws_iam_role" "workspaces_DefaultRole" {
-  count =  data.aws_iam_role.workspaces_DefaultRole.id == null ? 1 : 0 # Do not create if workspaces_DefaultRole already exusts 
+  # count =  data.aws_iam_role.workspaces_DefaultRole.role-exists == null ? 1 : 0 # Do not create if workspaces_DefaultRole already exusts 
   name = "rds_aws_managed_active_directory_role2"
   assume_role_policy =  jsonencode({
     "Version" = "2012-10-17",
